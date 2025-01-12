@@ -1,0 +1,99 @@
+.swagger-ui .topbar {
+    display: none;
+}
+.swagger-ui .btn.authorize svg {
+    fill: #0D131F;
+}
+.swagger-ui .btn.authorize {
+    background-color: transparent;
+    border-color: #0D131F;
+    color: #0D131F;
+    display: inline;
+    line-height: 1;
+}
+
+.swagger-ui .opblock.opblock-get .opblock-summary {
+    border-color: #AFB5BA;
+}
+.swagger-ui .opblock.opblock-get {
+    background: #F5F5FA;
+    border-color: #AFB5BA;
+}
+
+.swagger-ui .opblock.opblock-get .opblock-summary-method {
+    background: #DEE0E5;
+    color: #000;
+}
+
+.swagger-ui .opblock.opblock-post .opblock-summary {
+    border-color: #AFB5BA;
+}
+.swagger-ui .opblock.opblock-post {
+    background: #F5F5FA;
+    border-color: #AFB5BA;
+}
+
+.swagger-ui .opblock.opblock-post .opblock-summary-method {
+    background: #DEE0E5;
+    color: #000;
+}
+
+
+
+.swagger-ui .opblock .opblock-summary-method {
+    background: #DEE0E5;
+    color: #000;
+}
+.swagger-ui .opblock .opblock-section-header h4 {
+    color: #000;
+    
+    
+}
+
+.swagger-ui .btn {
+    background: transparent;
+    border: 2px solid #0D131F;
+    
+    box-shadow: 0 1px 2px#0D131F;
+    color: #0D131F;
+    
+    
+}
+.swagger-ui .opblock.opblock-get .tab-header .tab-item.active h4 span:after {
+    background: #0D131F;
+}
+.swagger-ui .opblock.opblock-get .opblock-summary{
+    border-color: #AFB5BA;
+}
+
+.swagger-ui .opblock.opblock-post .tab-header .tab-item.active h4 span:after {
+    background: #0D131F;
+}
+.swagger-ui .opblock.opblock-post .opblock-summary{
+    border-color: #AFB5BA;
+}
+.swagger-ui .btn.execute {
+    background-color: #0D131F;
+    border-color: #0D131F;
+    color: #FFF;
+}
+.swagger-ui .btn.cancel {
+    background-color: transparent;
+    border-color: #0D131F;
+    color: #0D131F;   
+}
+.swagger-ui .info .title small.version-stamp{
+    display: none;
+}
+.swagger-ui .info{
+    margin: 20px 0;
+}
+.swagger-ui .info hgroup.main {
+    margin: 0 0 10px;
+}
+.swagger-ui .scheme-container {
+    background: #FFF;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.15);
+    margin: 0 0 10px;
+    padding: 10px 0;
+}

@@ -1,0 +1,10 @@
+.env.development
+.env.test
+.env
+
+# compiled output
+dist
+/dist
+node_modules
+/node_modules
+.vscode

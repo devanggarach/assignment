@@ -1,0 +1,2031 @@
+{
+	"info": {
+		"_postman_id": "b9982acd-c289-4ec3-a968-6e21511d8db1",
+		"name": "Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26923074"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var d = pm.response.json()",
+									"pm.collectionVariables.set('TOKEN', d.token)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"devanggarach@gmail.com\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Invalid credentials",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"devanggarach@gmail.co\",\n    \"password\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/auth/login",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "30000"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "29998"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "49"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4b-XVdT1OofOivne40j7miRgTnITFM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2025 16:12:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"INVALID_CREDENTIALS\",\n    \"message\": \"Invalid credentials\",\n    \"status\": 401\n}"
+						},
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"devanggarach@gmail.com\",\n    \"password\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/auth/login",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "3"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "1"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "37"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "310"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"136-KUr5vcd1nhloDy7qtI4ZPhTzAUk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2025 21:04:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"traceId\": \"4d9c8833-3382-4e57-aef0-c78ca2ffe770\",\n    \"message\": \"Login successful\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Nzg0MmU2NzA2OTQ4ZTRlZDg3NTk1NmUiLCJlbWFpbCI6ImRldmFuZ2dhcmFjaEBnbWFpbC5jb20iLCJpYXQiOjE3MzY3MTU4OTEsImV4cCI6MTczNjcxOTQ5MX0.C--_d28D-swJuQNt0IQIZ5qxrqvyM5k0GVzRBZUsAjQ\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"devanggarach@gmail.com\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/auth/register",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Pwd Length Validation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"devanggarach@gmail.com\",\n    \"password\": \"12345\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/auth/register",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "30000"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "29997"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "60"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "98"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"62-OuHBcaQF3ifDd18JvrwQm40d7U4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2025 16:10:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 400,\n    \"message\": [\n        \"Password must be at least 6 characters long\"\n    ],\n    \"error\": \"Bad Request\"\n}"
+						},
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"devanggarach@gmail.com\",\n    \"password\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/auth/register",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "3"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "2"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "60"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "318"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"13e-ycdjamylvM1r9PVxZSH5I55S/Ic\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2025 21:04:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"traceId\": \"1ca457ef-7ccf-4311-970d-55d667df78c0\",\n    \"message\": \"User registered successfully\",\n    \"user\": {\n        \"email\": \"devanggarach@gmail.com\",\n        \"password\": \"$2b$10$vWnnETsksegR3CIyeocVeOwHGgao54mkWwihxblm1B91i.Pb1qAXW\",\n        \"_id\": \"67842e6706948e4ed875956e\",\n        \"createdAt\": \"2025-01-12T21:04:39.485Z\",\n        \"updatedAt\": \"2025-01-12T21:04:39.485Z\"\n    }\n}"
+						},
+						{
+							"name": "ALREADY EXISTS",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"devanggarach@gmail.com\",\n    \"password\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/auth/register",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "3"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "2"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "60"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "124"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7c-D6wfQAlQIeCnrz4aSiBBB9RQxbw\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2025 21:08:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"traceId\": \"af507eb2-8f7c-4678-91bd-70a3689cd111\",\n    \"code\": \"USER_ALREADY_EXISTS\",\n    \"message\": \"User already exists\",\n    \"status\": 409\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "CronJob",
+			"item": [
+				{
+					"name": "List Cron Jobs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/api/v1/cronjob",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cronjob"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/v1/cronjob",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cronjob"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "30000"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "29999"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "60"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "178"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b2-LGwJp9d0k/rrjEcdoWoFZB306EQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2025 18:12:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"6783f90c8d29fad9fa50006a\",\n        \"name\": \"abc\",\n        \"link\": \"https://jsonplaceholder.typicode.com/users\",\n        \"schedule\": \"1m\",\n        \"startDate\": \"2025-01-11T18:30:00.000Z\",\n        \"webhooks\": [],\n        \"__v\": 0\n    }\n]"
+						},
+						{
+							"name": "AUTH FAILED",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/v1/cronjob",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cronjob"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "3"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "1"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "42"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "86"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"56-NKUeD/tlVAI0p2Lnb2YKK17vYJ4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2025 20:15:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"AUTH_VALIDATION_FAILED\",\n    \"message\": \"Invalid token, unauthorized\",\n    \"status\": 401\n}"
+						},
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/v1/cronjob",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cronjob"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "3"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "1"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "56"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "60"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3c-IIMhgZPGT3MBw/k8S1k0pao7IN8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2025 21:07:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"traceId\": \"2c753fb3-1743-4e48-bb1e-b695eaffcd3b\",\n    \"data\": []\n}"
+						},
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/v1/cronjob",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cronjob"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "3"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "2"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "60"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "320"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"140-pQHjQ95CBlwwgs0VSoG0ITe+osQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2025 21:10:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"traceId\": \"a49109fb-2bfa-49a8-8f95-3538726abc98\",\n    \"data\": [\n        {\n            \"_id\": \"67842f72fd719b98e95b8cb3\",\n            \"name\": \"abc\",\n            \"link\": \"https://jsonplaceholder.typicode.com/users\",\n            \"apiKey\": null,\n            \"schedule\": \"1m\",\n            \"startDate\": \"2025-01-14T18:30:00.000Z\",\n            \"webhooks\": [],\n            \"createdAt\": \"2025-01-12T21:09:06.518Z\",\n            \"updatedAt\": \"2025-01-12T21:09:39.159Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Cron Job",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"abc\",\n    \"link\": \"https://jsonplaceholder.typicode.com/users\",\n    \"schedule\": \"1m\",\n    \"startDate\": \"15-01-2025\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/cronjob",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cronjob"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"abc\",\n    \"link\": \"https://jsonplaceholder.typicode.com/users\",\n    \"schedule\": \"1m\",\n    \"startDate\": \"13-01-2025\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/cronjob",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cronjob"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "30000"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "29997"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "16"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "176"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b0-fKqBFypVtZwv1/+SR7PUKNEWHD0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2025 17:17:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"abc\",\n    \"link\": \"https://jsonplaceholder.typicode.com/users\",\n    \"schedule\": \"1m\",\n    \"startDate\": \"2025-01-12T18:30:00.000Z\",\n    \"webhooks\": [],\n    \"_id\": \"6783f90c8d29fad9fa50006a\",\n    \"__v\": 0\n}"
+						},
+						{
+							"name": "AUTH FAILED",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"abc\",\n    \"link\": \"https://jsonplaceholder.typicode.com/users\",\n    \"schedule\": \"1m\",\n    \"startDate\": \"13-01-2025\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/cronjob",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cronjob"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "3"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "2"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "60"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "86"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"56-NKUeD/tlVAI0p2Lnb2YKK17vYJ4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2025 20:15:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"AUTH_VALIDATION_FAILED\",\n    \"message\": \"Invalid token, unauthorized\",\n    \"status\": 401\n}"
+						},
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"abc\",\n    \"link\": \"https://jsonplaceholder.typicode.com/users\",\n    \"schedule\": \"1m\",\n    \"startDate\": \"15-01-2025\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/cronjob",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cronjob"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "3"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "2"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "60"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "318"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"13e-wPOlQBlX37NjATEliRhDKl4uT0s\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2025 21:09:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"traceId\": \"c52cfee2-79ea-48fa-ba8d-2a0c4aaab498\",\n    \"data\": {\n        \"name\": \"abc\",\n        \"link\": \"https://jsonplaceholder.typicode.com/users\",\n        \"apiKey\": null,\n        \"schedule\": \"1m\",\n        \"startDate\": \"2025-01-14T18:30:00.000Z\",\n        \"webhooks\": [],\n        \"_id\": \"67842f72fd719b98e95b8cb3\",\n        \"createdAt\": \"2025-01-12T21:09:06.518Z\",\n        \"updatedAt\": \"2025-01-12T21:09:06.518Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Cron Job",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"abc\",\n    \"link\": \"https://jsonplaceholder.typicode.com/users\",\n    \"schedule\": \"1m\",\n    \"startDate\": \"11-01-2025\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/cronjob/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cronjob",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "67842f72fd719b98e95b8cb3"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "AUTH FAILED",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"abc\",\n    \"link\": \"https://jsonplaceholder.typicode.com/users\",\n    \"schedule\": \"1m\",\n    \"startDate\": \"15-01-2025\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/cronjob/:id",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cronjob",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6783f90c8d29fad9fa50006a"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "3"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "2"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "60"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "81"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"51-wvrbIuQjspt+zvsyMbBP8G1SDqM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2025 19:22:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"AUTH_VALIDATION_FAILED\",\n    \"message\": \"AUTH_VALIDATION_FAILED\",\n    \"status\": 401\n}"
+						},
+						{
+							"name": "RATE LIMIT",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"abc\",\n    \"link\": \"https://jsonplaceholder.typicode.com/users\",\n    \"schedule\": \"1m\",\n    \"startDate\": \"15-01-2025\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/cronjob/:id",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cronjob",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6783f90c8d29fad9fa50006a"
+										}
+									]
+								}
+							},
+							"status": "Too Many Requests",
+							"code": 429,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Retry-After",
+									"value": "41"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "53"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"35-mVVeoy0cH/IoL2LlBdEj9tLSPEM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2025 19:25:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 429,\n    \"message\": \"This is overload limit\"\n}"
+						},
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"abc\",\n    \"link\": \"https://jsonplaceholder.typicode.com/users\",\n    \"schedule\": \"1m\",\n    \"startDate\": \"15-01-2025\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/cronjob/:id",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cronjob",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "67842f72fd719b98e95b8cb3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "3"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "2"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "60"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "318"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"13e-hWiMrKcO5i8ky8TbMf3BNAnutFQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2025 21:09:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"traceId\": \"6e85eeea-b554-4aec-b7fd-96c30e223c6a\",\n    \"data\": {\n        \"_id\": \"67842f72fd719b98e95b8cb3\",\n        \"name\": \"abc\",\n        \"link\": \"https://jsonplaceholder.typicode.com/users\",\n        \"apiKey\": null,\n        \"schedule\": \"1m\",\n        \"startDate\": \"2025-01-14T18:30:00.000Z\",\n        \"webhooks\": [],\n        \"createdAt\": \"2025-01-12T21:09:06.518Z\",\n        \"updatedAt\": \"2025-01-12T21:09:39.159Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Cron",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/api/v1/cronjob/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cronjob",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "67842f72fd719b98e95b8cb3"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "AUTH FAILED",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/v1/cronjob/:id",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cronjob",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6783f90c8d29fad9fa5000"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "3"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "2"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "60"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "81"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"51-wvrbIuQjspt+zvsyMbBP8G1SDqM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2025 20:14:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"AUTH_VALIDATION_FAILED\",\n    \"message\": \"AUTH_VALIDATION_FAILED\",\n    \"status\": 401\n}"
+						},
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/v1/cronjob/:id",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cronjob",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6783f90c8d29fad9fa50006a"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "3"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "1"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "18"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-XbpQZ2DdlUUpv1++ZkU2A0KiJ5A\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2025 20:27:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Cron job deleted successfully\"\n}"
+						},
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/v1/cronjob/:id",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cronjob",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "67842c0cecb878e54956d771"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "3"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "2"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "60"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "92"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5c-dhVRRVgV5uVpeekvFnGvKm40aSQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2025 21:00:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"traceId\": \"67c57df1-4f78-4a47-abeb-05b90f8ad9a4\",\n    \"message\": \"Cron job deleted successfully\"\n}"
+						},
+						{
+							"name": "NOT EXISTS",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/v1/cronjob/:id",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cronjob",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "67842c0cecb878e54956d771"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "3"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "2"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "60"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "82"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"52-UA9N5U/CEetEKtFRo5tknpYhnj8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2025 20:59:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"traceId\": \"87e3c8b8-d371-428b-98bd-99910414186e\",\n    \"message\": \"Cron job not exists\"\n}"
+						},
+						{
+							"name": "Delete Cron",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/v1/cronjob/:id",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cronjob",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "67842f72fd719b98e95b8cb3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "3"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "1"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "60"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "92"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5c-YvHxPTQ5U3zhtcxSP1s1SOp77D8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2025 21:13:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"traceId\": \"b6e4bac7-5cba-4f19-a822-ad53c34619c8\",\n    \"message\": \"Cron job deleted successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Cron History",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/api/v1/cronjob/history/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cronjob",
+								"history",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "678436ab0befa23672c3519b"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Cron History",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/v1/cronjob/history/:id",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cronjob",
+										"history",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "678436ab0befa23672c3519b"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "3"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "2"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "60"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "293"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"125-2cUQHDncYTvd28dnWC+X5Kg8JXo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2025 22:02:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"traceId\": \"36d5e7f2-efa0-4939-87c3-0c75842019a6\",\n    \"data\": [\n        {\n            \"_id\": \"67843793ae0cae1ce4d7659e\",\n            \"cronJobId\": \"678436ab0befa23672c3519b\",\n            \"triggeredAt\": \"2025-01-12T21:43:47.131Z\",\n            \"response\": {\n                \"message\": \"test\"\n            },\n            \"status\": 0,\n            \"createdAt\": \"2025-01-12T21:43:47.135Z\",\n            \"updatedAt\": \"2025-01-12T21:43:47.135Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "WEBHOOK",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cronJobId\": \"678436ab0befa23672c3519b\",\n    \"data\": {\n        \"message\": \"test\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/cronjob/webhook",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cronjob",
+								"webhook"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"cronJobId\": \"678436ab0befa23672c3519b\",\n    \"data\": {\n        \"message\": \"test\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/cronjob/webhook",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cronjob",
+										"webhook"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "3"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "2"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "60"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "107"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6b-LoWRaq7B8u/+3GpTRuGUDOM4qDM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2025 21:43:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"traceId\": \"fa95e50f-b9c0-47dc-935a-14376b5f7cf9\",\n    \"data\": {\n        \"message\": \"Webhook response added successfully\"\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "TOKEN",
+			"value": ""
+		}
+	]
+}
